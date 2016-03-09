@@ -1,7 +1,7 @@
 galaxy_info:
   author: Charles Gardner
   description: An Ansible role that configures Ansible to run in userspace, no sudo or root necessary.
-  company: devrole.io
+  company: Opsroll
   license: license (GPLv2, CC-BY, etc)
   min_ansible_version: 1.2
   platforms:
