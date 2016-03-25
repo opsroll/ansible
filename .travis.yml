@@ -24,7 +24,7 @@ install:
 script:
   # Basic role syntax check
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
-  - ansible-playbook tests/test.yml -i tests/inventory --ssh-extra-args=-o ControlMaster=auto -o ControlPersist=60s -o HostKeyChecking=false
+  - ansible-playbook tests/test.yml -i tests/inventory --ssh-extra-args="-o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=false"
   - ansible-playbook tests/test.yml -i tests/inventory
 
 notifications:
