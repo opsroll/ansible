@@ -3,17 +3,25 @@ os:
   - linux
   - osx
 
+matrix:
+  allow_failures:
+    - os: osx
+
 language: python
 python: "2.7"
 
 # Use the new container infrastructure
-sudo: true
+sudo: false
 
 # Install ansible
 addons:
   apt:
     packages:
     - python-pip
+
+before install:
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update          ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install python2 ; fi
 
 install:
   # Install ansible
