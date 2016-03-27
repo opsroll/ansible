@@ -7,4 +7,4 @@
 
 - name: Verify Conifguration 
   shell: >
-    cat "{{ lookup('env', 'HOME') }}"
+    cat "{{ lookup('env', 'HOME') }}/.ansible.cfg"
