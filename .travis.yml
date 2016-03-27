@@ -27,8 +27,8 @@ before install:
 
 install:
   # Install ansible
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; sudo pip install ansible; fi
-  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; pip install ansible; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo pip install ansible; fi
+  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then pip install ansible; fi
 
   # Check ansible version
   - ansible --version
