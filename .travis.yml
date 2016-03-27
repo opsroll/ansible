@@ -1,5 +1,9 @@
 ---
 language: python
+cache: 
+  pip
+  directories:
+    - $TRAVIS_BUILD_DIR/venv
 
 matrix:
   include:
