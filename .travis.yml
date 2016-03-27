@@ -26,6 +26,7 @@ script:
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
   - ansible-playbook tests/test.yml -i tests/inventory --ssh-extra-args="-o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=false"
   - ansible-playbook tests/test.yml -i tests/inventory
+  - cat ~/.ansible.cfg
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
