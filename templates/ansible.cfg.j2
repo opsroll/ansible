@@ -171,7 +171,9 @@ cow_selection = default
 # wanting to use, for example, IP information from one group of servers
 # without having to talk to them in the same playbook run to get their
 # current IP information.
+{% if lookup('env', 'TRAVIS') != "true" %}
 fact_caching = redis
+{% endif %}
 
 # retry files
 # When a playbook fails by default a .retry file will be created in ~/
