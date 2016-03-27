@@ -1,6 +1,7 @@
 ---
 language: python
 cache:
+  apt: true
   pip: true
   directories:
     - $TRAVIS_BUILD_DIR/venv
