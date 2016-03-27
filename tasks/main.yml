@@ -5,6 +5,26 @@
     src=ansible.cfg.j2
     dest="{{ lookup('env', 'HOME') }}/.ansible.cfg"
 
+- name: Create local ansible work directory
+  file: >
+    path="{{ lookup('env', 'HOME') }}/.ansible"
+    state=directory
+
+- name: Create roles directory for downloaded roles.
+  file: >
+    path="{{ lookup('env', 'HOME') }}/.ansible/roles/galaxy"
+    state=directory
+
+- name: Create roles directory for locally created roles.
+  file: >
+    path="{{ lookup('env', 'HOME') }}/.ansible/roles/local"
+    state=directory
+
+- name: Create logs directory for local logs.
+  file: >
+    path="{{ lookup('env', 'HOME') }}/.ansible/logs"
+    state=directory
+
 - name: Verify Conifguration 
   shell: >
     cat "{{ lookup('env', 'HOME') }}/.ansible.cfg"
