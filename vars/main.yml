@@ -1,2 +1,4 @@
 ---
 # vars file for devrole-ansible
+
+roles_path: $HOME/.ansible/roles/galaxy:$HOME/.ansible/roles/local

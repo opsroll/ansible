@@ -13,7 +13,11 @@ transport                   = smart
 module_lang                 = C
 gathering                   = implicit
 
-roles_path                  = $HOME/.ansible/roles/galaxy:$HOME/.ansible/roles/local
+{% if lookup('env', 'TRAVIS') == "true" %}
+roles_path                  = {{ roles_path }}:../
+{% else %}
+roles_path                  = {{ roles_path }}
+{% endif %}
 
 host_key_checking           = True
 
