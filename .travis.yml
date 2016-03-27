@@ -7,6 +7,7 @@ matrix:
       sudo: false
       python: "2.7"
     - os: osx
+      sudo: true
       language: generic
 
 # Use the new container infrastructure
