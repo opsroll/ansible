@@ -24,9 +24,10 @@ install:
 script:
   # Basic role syntax check
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+    # first run with extra params because ssh was complaining.
   - ansible-playbook tests/test.yml -i tests/inventory --ssh-extra-args="-o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=false"
+    # second run to verify the config is being loaded.
   - ansible-playbook tests/test.yml -i tests/inventory
-  - echo "$(<${HOME}/.ansible.cfg)"
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
