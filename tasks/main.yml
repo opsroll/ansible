@@ -20,6 +20,11 @@
     path="{{ lookup('env', 'HOME') }}/.ansible/roles/local"
     state=directory
 
+- name: Create retry directory for retries.
+  file: >
+    path="{{ lookup('env', 'HOME') }}/.ansible/retry"
+    state=directory
+
 - name: Create logs directory for local logs.
   file: >
     path="{{ lookup('env', 'HOME') }}/.ansible/logs"
