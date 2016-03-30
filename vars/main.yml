@@ -3,7 +3,7 @@
 opsroll:
   ansible:
     user_install_path: $HOME/.ansible
-    roles_path: {{opsroll.ansible.user_install_path}}/roles/galaxy:{{opsroll.ansible.user_install_path}}/roles/local # ansible defaults Galaxy installs to the first path listed.
+    roles_path: {{opsroll.ansible.user_install_path}}/roles/galaxy:{{opsroll.ansible.user_install_path}}/roles/local
     inventory_path: {{opsroll.ansible.user_install_path}}/inventory
     library_path: {{opsroll.ansible.user_install_path}}/library
     logs_path: {{opsroll.ansible.user_install_path}}/logs
