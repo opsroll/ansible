@@ -1,4 +1,11 @@
 ---
 # vars file for devrole-ansible
-
-roles_path: $HOME/.ansible/roles/galaxy:$HOME/.ansible/roles/local
+opsroll:
+  ansible:
+    user_install_path: $HOME/.ansible
+    roles_path: {{opsroll.ansible.user_install_path}}/roles/galaxy:{{opsroll.ansible.user_install_path}}/roles/local # ansible defaults Galaxy installs to the first path listed.
+    inventory_path: {{opsroll.ansible.user_install_path}}/inventory
+    library_path: {{opsroll.ansible.user_install_path}}/library
+    logs_path: {{opsroll.ansible.user_install_path}}/logs
+    retry_files_save_path: {{opsroll.ansible.user_install_path}}/retry
+    fact_caching: redis

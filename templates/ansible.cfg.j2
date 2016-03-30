@@ -1,8 +1,8 @@
 [defaults]
 
-inventory                   = $HOME/.ansible/inventory
-library                     = $HOME/.ansible/library
-remote_tmp                  = $HOME/.ansible/tmp
+inventory                   = {{opsroll.ansible.inventory_path}}
+library                     = {{opsroll.ansible.library_path}}
+remote_tmp                  = {{opsroll.ansible.remote_tmp_path}}
 forks                       = 10
 poll_interval               = 10
 #sudo_user                  = root
@@ -14,9 +14,9 @@ module_lang                 = C
 gathering                   = implicit
 
 {% if lookup('env', 'TRAVIS') == "true" %}
-roles_path                  = {{ roles_path }}:../
+roles_path                  = {{opsroll.ansible.roles_path}}:../
 {% else %}
-roles_path                  = {{ roles_path }}
+roles_path                  = {{opsroll.ansible.roles_path}}
 {% endif %}
 
 host_key_checking           = True
