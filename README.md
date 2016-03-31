@@ -13,9 +13,9 @@ You must have already installed ansible.
 Role Variables
 --------------
 
-opsroll:
-  ansible:
-    user_install_path: $HOME/.ansible
+    opsroll:
+      ansible:
+        user_install_path: $HOME/.ansible
 
 Dependencies
 ------------
@@ -27,10 +27,10 @@ Example Playbook
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-- hosts: localhost
-  connection: local
-  roles:
-  - { role: opsroll.ansible, user_install_path: $HOME/.ansible }
+    - hosts: localhost
+      connection: local
+      roles:
+      - { role: opsroll.ansible, user_install_path: $HOME/.ansible }
 
 License
 -------
