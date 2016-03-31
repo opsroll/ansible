@@ -22,15 +22,22 @@ Dependencies
 
 
 
-Example Playbook
-----------------
+Example Setup Playbook
+----------------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+The quick setup goes as follows. Create a file in your $HOME directory called
+.setup.yml and paste the following into it.
 
-    - hosts: localhost
-      connection: local
-      roles:
-      - { role: opsroll.ansible, user_install_path: $HOME/.ansible }
+      - hosts: localhost
+        connection: local
+        roles:
+        - { role: opsroll.ansible, user_install_path: $HOME/.ansible }
+
+then run it
+
+      ansible-playbook ~/.setup.yml
+
+now your ansible is configured to run completely within your home directory.
 
 License
 -------
