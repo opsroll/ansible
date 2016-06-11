@@ -20,6 +20,16 @@
     path="{{ lookup('env', 'HOME') }}/.ansible/roles/local"
     state=directory
 
+- name: Create playbooks directory for locally created roles.
+  file: >
+    path="{{ lookup('env', 'HOME') }}/.ansible/roles/playbooks"
+    state=directory
+
+- name: Create inventory directory for locally created roles.
+  file: >
+    path="{{ lookup('env', 'HOME') }}/.ansible/roles/inventory"
+    state=directory
+
 - name: Create retry directory for retries.
   file: >
     path="{{ lookup('env', 'HOME') }}/.ansible/retry"
