@@ -16,7 +16,7 @@ gathering                   = implicit
 {% if lookup('env', 'TRAVIS') == "true" %}
 roles_path                  = {{opsroll.ansible.roles.galaxy.path}}:{{opsroll.ansible.roles.local.path}}:../
 {% else %}
-roles_path                  = {{opsroll.ansible.roles.galaxy.path}}:{{opsroll.ansible.install_path}}
+roles_path                  = {{opsroll.ansible.roles.galaxy.path}}:{{opsroll.ansible.roles.local.path}}
 {% endif %}
 
 host_key_checking           = True
