@@ -1,0 +1,32 @@
+---
+
+- name: Install software-properties-common
+  package: >
+    name=software-properties-common
+    state=latest
+  sudo: true
+
+- name: Add ansible ppa
+  apt_repository: >
+    repo=ppa:ansible/ansible
+  sudo: true
+
+- name: Install ansible
+  package: >
+    name=ansible
+    state=latest
+  sudo: true
+
+- name: Install PIP
+  package: >
+    name=python-pip
+    state=latest
+  sudo: true
+
+- name: Install python modules
+  pip: >
+    name={{item}}
+  with_items:
+    - markupsafe
+    - redis
+  sudo: true
