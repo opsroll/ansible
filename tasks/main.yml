@@ -1,7 +1,7 @@
 ---
 
 - name: Install macOS prerequisites.
-  include: ubuntu.yml
+  include: macOS.yml
   when: (ansible_distribution == "MacOSX")
 
 - name: Install Ubuntu prerequisites.

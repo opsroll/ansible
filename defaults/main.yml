@@ -1,7 +1,7 @@
 ---
 
 # This fixes a variable recursion bug
-install_path: "/home/vagrant/.ansible"
+install_path: "{{ ansible_env.HOME }}/.ansible"
 plugins_path: "{{ install_path }}/plugins"
 
 opsroll:
