@@ -1,45 +1,39 @@
 ---
-# tasks file for ansible
-- name: Generate ansible.cfg
+
+- name: Install macOS prerequisites.
+  include: ubuntu.yml
+  when: (ansible_distribution == "MacOSX")
+
+- name: Install Ubuntu prerequisites.
+  include: ubuntu.yml
+  when: (ansible_distribution == "Ubuntu")
+
+- name: Create local installation directories.
+  file: >
+    path={{ item }}
+    state=directory
+  with_flattened:
+    - "{{opsroll.ansible.install_path}}"
+    - "{{opsroll.ansible.group_vars.path}}"
+    - "{{opsroll.ansible.host_vars.path}}"
+    - "{{opsroll.ansible.inventory.path}}"
+    - "{{opsroll.ansible.logs.path}}"
+    - "{{opsroll.ansible.playbooks.path}}"
+    - "{{opsroll.ansible.plugins.path}}"
+    - "{{opsroll.ansible.plugins.action.path}}"
+    - "{{opsroll.ansible.plugins.callback.path}}"
+    - "{{opsroll.ansible.plugins.connection.path}}"
+    - "{{opsroll.ansible.plugins.lookup.path}}"
+    - "{{opsroll.ansible.plugins.vars.path}}"
+    - "{{opsroll.ansible.plugins.filter.path}}"
+    - "{{opsroll.ansible.plugins.test.path}}"
+    - "{{opsroll.ansible.plugins.vault.path}}"
+    - "{{opsroll.ansible.retry.path}}"
+    - "{{opsroll.ansible.roles.galaxy.path}}"
+    - "{{opsroll.ansible.roles.local.path}}"
+    - "{{opsroll.ansible.vault.path}}"
+
+- name: Generate your default ansible.cfg
   template:
     src=ansible.cfg.j2
-    dest="{{ lookup('env', 'HOME') }}/.ansible.cfg"
-
-- name: Create local ansible work directory
-  file: >
-    path="{{ lookup('env', 'HOME') }}/.ansible"
-    state=directory
-
-- name: Create roles directory for downloaded roles.
-  file: >
-    path="{{ lookup('env', 'HOME') }}/.ansible/roles/galaxy"
-    state=directory
-
-- name: Create roles directory for locally created roles.
-  file: >
-    path="{{ lookup('env', 'HOME') }}/.ansible/roles/local"
-    state=directory
-
-- name: Create playbooks directory for locally created roles.
-  file: >
-    path="{{ lookup('env', 'HOME') }}/.ansible/playbooks"
-    state=directory
-
-- name: Create inventory directory for locally created roles.
-  file: >
-    path="{{ lookup('env', 'HOME') }}/.ansible/inventory"
-    state=directory
-
-- name: Create retry directory for retries.
-  file: >
-    path="{{ lookup('env', 'HOME') }}/.ansible/retry"
-    state=directory
-
-- name: Create logs directory for local logs.
-  file: >
-    path="{{ lookup('env', 'HOME') }}/.ansible/logs"
-    state=directory
-
-- name: Verify Conifguration 
-  shell: >
-    cat "{{ lookup('env', 'HOME') }}/.ansible.cfg"
+    dest="{{ ansible_env.HOME }}/.ansible.cfg"

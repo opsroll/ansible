@@ -1,2 +1,47 @@
 ---
-# defaults file for devrole-ansible
+
+# This fixes a variable recursion bug
+install_path: "/home/vagrant/.ansible"
+plugins_path: "{{ install_path }}/plugins"
+
+opsroll:
+  ansible:
+    install_path: "{{ install_path }}"
+    fact_caching: redis
+    group_vars:
+      path: "{{ install_path }}/group_vars"
+    host_vars:
+      path: "{{ install_path }}/host_vars"
+    inventory:
+      path: "{{ install_path }}/inventory"
+    logs:
+      path: "{{ install_path }}/logs"
+    playbooks:
+      path: "{{ install_path }}/playbooks"
+    plugins:
+      path: "{{ plugins_path }}"
+      action:
+        path: "{{ plugins_path }}/action"
+      callback:
+        path: "{{ plugins_path }}/callback"
+      connection:
+        path: "{{ plugins_path }}/connection"
+      lookup:
+        path: "{{ plugins_path }}/lookup"
+      vault:
+        path: "{{ plugins_path }}/vault"
+      vars:
+        path: "{{ plugins_path }}/vars"
+      filter:
+        path: "{{ plugins_path }}/filter"
+      test:
+        path: "{{ plugins_path }}/test"
+    retry:
+      path: "{{ install_path }}/retry"
+    roles:
+      galaxy:
+        path: "{{ install_path }}/roles/galaxy"
+      local:
+        path: "{{ install_path }}/roles/local"
+    vault:
+      path: "{{ install_path }}/vault"

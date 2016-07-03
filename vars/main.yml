@@ -1,6 +1,0 @@
----
-# vars file for devrole-ansible
-opsroll:
-  ansible:
-    user_install_path: $HOME/.ansible
-    fact_caching: redis

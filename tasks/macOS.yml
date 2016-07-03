@@ -1,0 +1,9 @@
+---
+
+- name: Install Hombrew for package management on macOS.
+  shell: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+- name: Install redis for local fact caching.
+  package: >
+    name=redis
+    state=latest

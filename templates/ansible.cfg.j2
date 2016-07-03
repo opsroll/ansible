@@ -1,8 +1,8 @@
 [defaults]
 
-inventory                   = {{opsroll.ansible.user_install_path}}/inventory
-library                     = {{opsroll.ansible.user_install_path}}/library
-#remote_tmp                  = {{opsroll.ansible.user_install_path}}/tmp
+inventory                   = {{opsroll.ansible.inventory.path}}
+library                     = {{opsroll.ansible.install_path}}/library
+#remote_tmp                  = {{opsroll.ansible.install_path}}/tmp
 forks                       = 10
 poll_interval               = 10
 #sudo_user                  = root
@@ -14,9 +14,9 @@ module_lang                 = C
 gathering                   = implicit
 
 {% if lookup('env', 'TRAVIS') == "true" %}
-roles_path                  = {{opsroll.ansible.user_install_path}}/roles/galaxy:{{opsroll.ansible.user_install_path}}/roles/local:../
+roles_path                  = {{opsroll.ansible.roles.galaxy.path}}:{{opsroll.ansible.roles.local.path}}:../
 {% else %}
-roles_path                  = {{opsroll.ansible.user_install_path}}/roles/galaxy:{{opsroll.ansible.user_install_path}}/roles/local
+roles_path                  = {{opsroll.ansible.roles.galaxy.path}}:{{opsroll.ansible.install_path}}
 {% endif %}
 
 host_key_checking           = True
@@ -42,7 +42,7 @@ sudo_flags = -E -H -S -n
 
 # logging is off by default unless this path is defined
 # if so defined, consider logrotate
-log_path = $HOME/.ansible/logs/ansible.log
+log_path = {{opsroll.ansible.logs.path}}/ansible.log
 
 # default module name for /usr/bin/ansible
 #module_name = command
