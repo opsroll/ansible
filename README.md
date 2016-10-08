@@ -11,6 +11,7 @@ Requirements
 - Ansible installed via PIP
 - A basic configuration at ~/.ansible.cfg
 
+
     [defaults]
     roles_path=$HOME/.ansible/roles/galaxy
     hash_behaviour = merge
