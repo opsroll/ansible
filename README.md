@@ -8,7 +8,12 @@ This role aims to simplify using ansible both as a developer and as an admin.
 Requirements
 ------------
 
-You must have already installed ansible.
+- Ansible installed via PIP
+- A basic configuration at ~/.ansible.cfg
+  `[defaults]`
+  `roles_path=$HOME/.ansible/roles/galaxy`
+  `hash_behaviour = merge`
+
 
 Role Variables
 --------------
@@ -35,7 +40,7 @@ The quick setup goes as follows. Create a file in your $HOME directory called
 
 then run it
 
-      ansible-playbook ~/.setup.yml
+      `ansible-playbook ~/.setup.yml`
 
 now your ansible is configured to run completely within your home directory.
 
