@@ -9,9 +9,9 @@ opsroll:
     install_path: "{{ install_path }}"
     fact_caching: redis
     group_vars:
-      path: "{{ install_path }}/group_vars"
+      path: "{{ install_path }}/inventory/group_vars"
     host_vars:
-      path: "{{ install_path }}/host_vars"
+      path: "{{ install_path }}/inventory/host_vars"
     inventory:
       path: "{{ install_path }}/inventory"
     logs:

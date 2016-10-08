@@ -14,9 +14,9 @@
     state=directory
   with_flattened:
     - "{{opsroll.ansible.install_path}}"
+    - "{{opsroll.ansible.inventory.path}}"
     - "{{opsroll.ansible.group_vars.path}}"
     - "{{opsroll.ansible.host_vars.path}}"
-    - "{{opsroll.ansible.inventory.path}}"
     - "{{opsroll.ansible.logs.path}}"
     - "{{opsroll.ansible.playbooks.path}}"
     - "{{opsroll.ansible.plugins.path}}"
