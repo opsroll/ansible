@@ -1,9 +1,10 @@
 ---
 
 - name: Install Hombrew for package management on macOS.
-  shell: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  args:
-    creates: /usr/local/bin/brew
+  git: >
+    dest={{ lookup('ENV', 'HOME') }}/.local/brew
+    repo=https://github.com/Homebrew/brew.git
+    update=no
 
 - name: Install redis for local fact caching.
   package: >
